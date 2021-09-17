@@ -10,7 +10,7 @@ def info(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("register:login"))
     
-    img = Student.objects.get(pk = (request.user.id - 1 ))
+    img = Student.objects.get(user = request.user)
 
     return render(request, "registers/userinfo.html",{
         "image" : img
@@ -23,7 +23,7 @@ def index(request):
     registered_subject_seat = []
     unregister_subject_seat = []
 
-    current_subject = Student.objects.get(pk=(request.user.id-1)).subject.all()
+    current_subject = Student.objects.get(user = request.user).subject.all()
     #ใช้__inถ้าเราส่งมาเป็นquery set
     other_subject = Subject.objects.exclude(pk__in = current_subject)
 
@@ -64,7 +64,7 @@ def logout_view(request):
 
 def subject_info(request , subject_id):
     this_subject = get_object_or_404(Subject, pk= subject_id)
-    current_subject = Student.objects.get(pk=(request.user.id-1)).subject.all()
+    current_subject = Student.objects.get(user = request.user).subject.all()
     if this_subject in current_subject :
         check = True
     else:
@@ -78,14 +78,14 @@ def subject_info(request , subject_id):
 def enroll(request , subject_id):
     if request.method == "POST":
         select_subject = Subject.objects.get(pk = subject_id)
-        student = Student.objects.get(pk = (request.user.id - 1))
+        student = Student.objects.get(user = request.user)
         student.subject.add(select_subject)
     return HttpResponseRedirect(reverse("register:index"))
 
 def unenroll(request , subject_id):
     if request.method == "POST":
         select_subject = Subject.objects.get(pk = subject_id)
-        student = Student.objects.get(pk = (request.user.id - 1))
+        student = Student.objects.get(user = request.user)
         student.subject.remove(select_subject)
     return HttpResponseRedirect(reverse("register:index"))
 
@@ -98,7 +98,7 @@ def upload(request):
   
         if form.is_valid():
             image = form.cleaned_data['image']
-            a = Student.objects.get(pk = (request.user.id - 1))
+            a = Student.objects.get(user = request.user)
             a.img = image
             a.save()
             return HttpResponseRedirect(reverse("register:info"))
