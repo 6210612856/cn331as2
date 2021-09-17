@@ -1,0 +1,75 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: montserrat;
+  background: linear-gradient(135deg,#fffb00,#ff4800);
+  height: 100vh;
+  overflow: hidden;
+}
+.message p2{
+  position:absolute;
+  top : 1%;
+  left: 24%;
+  size: 1px;
+}
+.message p1{
+  position:absolute;
+  top : 1%;
+  left: 3%;
+  size: 1px;
+  color:red;
+}
+
+.form{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 200px;
+  width: 213px;
+  background: white;
+  border-radius: 10px;
+}
+.username input[type="text"]{
+  position: absolute;
+  top: 30%;
+  left: 5px;
+  color: #000000;
+  transform: translatey(-50%);
+  font-size: 16px;
+}
+.username p{
+  position: absolute;
+  top:5%;
+  left:5px;
+}
+form .txt_field{
+  position: relative;
+  border-bottom: 2px solid#adadad;
+  margin: 30px 0;
+}
+.password input[type = "password"]{
+  position: absolute;
+  top: 55%;
+  left: 5px;
+  color: #000000;
+  transform: translatey(-10%);
+  font-size: 16px;
+}
+.password p{
+  position: absolute;
+  top: 34%;
+  left: 5px;
+}
+.loginbutton{
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  color: #adadad;
+  font-size: 16px;
+}
+input[type="submit"]{
+  width: 450%;
+  height: 25px;
+  border: 1px;
+}

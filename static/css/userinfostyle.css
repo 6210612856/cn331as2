@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    background: linear-gradient(135deg,#fffb00,#ff4800);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+.form{
+  position: absolute;
+  top: 25%;
+  left: 43%;
+  transform: translate(-50%.-50%);
+  height: 250px;
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+}
+
+.form h1{
+  position:absolute;
+  color : seagreen;
+  left : 21%
+}
+
+.form p1{
+  position: absolute;
+  top : 30%;
+  left: 3%;
+}
+.form p2{
+  position: absolute;
+  top : 50%;
+  left: 3%;
+}
+.form p3{
+  position: absolute;
+  bottom : 10%;
+  left: 3%;
+}
+.form p4{
+  position: absolute;
+  bottom : 10%;
+  left : 53%;
+}

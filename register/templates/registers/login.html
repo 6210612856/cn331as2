@@ -1,0 +1,28 @@
+{% extends "registers/layout.html" %}
+{% load static %}
+{% block body %}
+    <link rel="stylesheet" href ="{% static 'css/loginstyle.css' %}">
+        <form action="{% url 'register:login' %}" method="post" >
+            {% csrf_token %}
+            <div class="form">
+                <div class = "message">
+                    {% if message %}
+                        <p1>{{ message }}</p1>
+                    {% else %}
+                        <p2> Please, Login </p2>
+                    {% endif %}
+                </div>
+                <div class="username">
+                    <p>USERNAME</p>
+                    <input type="text" name= "username" placeholder="Username">
+                </div>
+                <div class="password">
+                    <p>PASSWORD</p>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="loginbutton">
+                    <input type="submit" value="Login">
+                </div>
+            </div>
+        </form>     
+{% endblock %}

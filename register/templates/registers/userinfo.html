@@ -1,0 +1,22 @@
+{% extends "registers/layout.html" %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet"  href="{% static 'css/style.css' %}">
+    <div class= "form">
+        <h1>Hi! , {{request.user.first_name}}! </h1>
+
+        <img src="{{ image.img.url}}" alt="connect" width="200" height="200" class ="center">
+
+        <p5><a href="{% url 'register:upload' %}">upload profile picture</a></p5>
+    
+        <p1> Name :  {{request.user.first_name}} {{request.user.last_name}}</p1>
+
+
+        <p2> Email :  {{request.user.email}} </p2>
+
+
+        <p3><a href="{% url 'register:index' %}">Registration</a></p3>
+    
+        <p4><a href="{% url 'register:logout' %}">logout</a></p4>
+    </div>
+{% endblock %}

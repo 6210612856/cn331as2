@@ -1,0 +1,45 @@
+{% extends "registers/layout.html"%}
+{% load static %}
+{% block body %}
+<link rel = "stylesheet" href = "{% static 'css/subjectstyle.css' %}">
+<body>
+    <div class = "form1">
+    <h1>Registered Subjects List</h1>
+    <table style="width:100%">
+    {% for subject in subjects %}
+    {% load addon %}
+        <tr>
+            <ul>
+        <td><li><a href = "{% url 'register:subjectinfo' subject.subject_id %}" >{{ subject }}</li></a></td>
+        <td>{{ user_seat|index:forloop.counter0 }} / {{ subject.max_seat}}</td>
+    {% empty %}
+        <a>There're no subject here</a>
+    {% endfor %}
+            </ul>
+        </tr>
+    </table>
+    </div>
+
+    <div class = form2>
+    <h1>Unregister Subjects List</h1>
+
+        
+    <table style="width:100%">
+    {% for other in other_subject %}
+    {% load addon %}
+        <tr>
+            <ul>
+        <td><li><a href = "{% url 'register:subjectinfo' other.subject_id %}" >{{ other }}</li></a></td>
+        <td>{{ other_seat|index:forloop.counter0 }} / {{ other.max_seat}}</td>
+    {% empty %}
+            <a>There're no subject here</a>
+    {% endfor %}
+            </ul>
+        </tr>
+    </table>
+    </div>
+    <p><a href="{% url 'register:info' %}">About me</a></p>
+    <p><a href="{% url 'register:logout' %}">Logout</a></p>
+    
+</body>
+{% endblock %}
