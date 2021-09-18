@@ -1,7 +1,12 @@
 {% extends "registers/layout.html"%}
+{% load static %}
 {% block body %}
+<link rel = "stylesheet" href = "{% static 'css/admin_indexstyle.css' %}">
+    <div class = "form">
+    <h1> Student Enrolled List</h1>
     {% for subject in subjects %}
     <ul><a href = "{% url 'register:admin_subject_info' subject.subject_id %}" >{{ subject }}</ul>
-    
     {% endfor %}
+    <p><a href="{% url 'register:logout' %}">Logout</a></p>
+    </div>
 {% endblock %}

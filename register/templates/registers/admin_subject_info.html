@@ -1,12 +1,16 @@
 {% extends "registers/layout.html"%}
+{% load static %}
 {% block body %}
 
-<p>subject_id : {{subject}}</p>
-<p>students</p>
+<link rel = "stylesheet" href = "{% static 'css/admin_subject_infostyle.css' %}">
+<div class = "form">
+<h1>Subject ID : {{subject}}</h1>
+<h2>Student enrolled list</h2>
+<p>Current enroll seat = {{current_seat}}/{{max_seat}}</p>
 {% for student in student_list %}
-   <ul>{{student}}</ul> 
+   <li>{{student}}</li> 
 {% endfor %}
-<p>current_seat {{current_seat}}/{{max_seat}}</p>
 
 <p1><a href="{% url 'register:info' %}">Return</a></1p>
 {% endblock %}
+</div>
