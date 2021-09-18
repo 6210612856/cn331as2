@@ -1,0 +1,12 @@
+{% extends "registers/layout.html"%}
+{% block body %}
+
+<p>subject_id : {{subject}}</p>
+<p>students</p>
+{% for student in student_list %}
+   <ul>{{student}}</ul> 
+{% endfor %}
+<p>current_seat {{current_seat}}/{{max_seat}}</p>
+
+<p1><a href="{% url 'register:info' %}">Return</a></1p>
+{% endblock %}

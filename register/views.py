@@ -2,7 +2,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render , HttpResponse ,get_object_or_404  ,  redirect
 from django.urls import reverse 
 from django.contrib.auth import authenticate, login, logout
-from django.db.models import Value, Count, CharField
+from django.contrib import admin
 from .forms import *
 from .models import *
 
@@ -10,11 +10,33 @@ def info(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("register:login"))
     
+    if request.user.is_superuser :
+        return render(request , 'registers/admin_index.html',{
+            "subjects" :  Subject.objects.all()
+        })
+
     img = Student.objects.get(user = request.user)
 
     return render(request, "registers/userinfo.html",{
         "image" : img
     })
+
+def admin_subject_info(request , subject_id):
+
+    #check admin login
+    if not request.user.is_superuser:
+        return HttpResponseRedirect(reverse("register:login"))
+
+    this_subject = get_object_or_404(Subject, pk= subject_id)
+
+    return render(request, "registers/admin_subject_info.html", {
+        "subject" : this_subject,
+        "student_list" : Subject.objects.get(pk = subject_id).subject.all(),
+        "current_seat" : (this_subject.max_seat - this_subject.subject.all().count()),
+        "max_seat" :  this_subject.max_seat,
+    })
+
+
 
 def index(request):
     if not request.user.is_authenticated:
@@ -41,7 +63,7 @@ def index(request):
 
         
     })
-    
+
 def login_view(request):
     if request.method == "POST":
         user = request.POST["username"]
@@ -78,6 +100,7 @@ def subject_info(request , subject_id):
         "check_seat" : check_seat,
         "current_seat" : current_seat,
     })
+
 
 def enroll(request , subject_id):
     if request.method == "POST":

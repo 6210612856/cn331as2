@@ -1,0 +1,7 @@
+{% extends "registers/layout.html"%}
+{% block body %}
+    {% for subject in subjects %}
+    <ul><a href = "{% url 'register:admin_subject_info' subject.subject_id %}" >{{ subject }}</ul>
+    
+    {% endfor %}
+{% endblock %}
