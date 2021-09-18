@@ -35,3 +35,29 @@
  - enroll : ฟังค์ชั่นที่ไว้รับผู้ใช้งานเข้าสู่ฐานข้อมูล  
  - unenroll : ฟังค์ชั่นที่ไว้ลบผู้ใช้งานออกจากฐานข้อมูล    
  - upload : ฟังค์ชั่นที่ไว้อัพโหลดรูปภาพของผู้ใช้งาน    
+ 
+ | Username | password | Role |
+ | -------- | -------- | ---- |
+ | 6210612851 | maneemenaa | User |
+ | 6210612852 | maneemenaa | User |
+ | 6210612853 | maneemenaa | User |
+ | 6210612854 | maneemenaa | User |
+ | 6210612855 | maneemenaa | User |
+ | 6210612856 | maneemenaa | User |
+ | 6210612857 | maneemenaa | User |
+ | 6210612858 | maneemenaa | User |
+ | 6210612859 | maneemenaa | User |
+ | admin | admin | Superuser |
+ 
+ ----------------------------------------------------------------------------------
+ 
+ | Subject_ID | Subject_name | Status |
+ | ---------- | ------------ | ------ |
+ | cn201 | Object Oriented Programming | Not Available |
+ | cn202 | Data Structure I | Available |
+ | cn203 | Data Structure II | Available |
+ | cn204 | Probability and Static | Not Available |
+ | cn240 | Data Science | Not Available |
+ | cn101 | Basic Programming | Available |
+ | cn200 | Discreate Math | Not Available |
+ 
