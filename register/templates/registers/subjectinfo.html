@@ -9,16 +9,17 @@
     <p>Subject name : {{subject.subject_name}}</p>
     <p>Semester : {{subject.semester}}</p>
     <p>Year : {{subject.year}}</p>
-    <p>Max seat : {{subject.max_seat}}</p>
+    <p>Current seat : {{current_seat}}/{{subject.max_seat}}</p>
     <p>Available : {{subject.available }}</p>
-
     
     {% if not user_registered %}
         {% if subject.available %}
-            <form action="{% url 'register:enroll' subject.subject_id %}" method="post">
-                {% csrf_token %}
-                    <input type="submit" value="Enroll" class = "enrollbutton">
-            </form>
+            {% if check_seat %}
+                <form action="{% url 'register:enroll' subject.subject_id %}" method="post">
+                    {% csrf_token %}
+                        <input type="submit" value="Enroll" class = "enrollbutton">
+                </form>
+            {% endif %}
         {% endif %}
     {% else %}
     <form action="{% url 'register:unenroll' subject.subject_id %}" method="post">

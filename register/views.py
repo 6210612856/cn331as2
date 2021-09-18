@@ -65,6 +65,9 @@ def logout_view(request):
 def subject_info(request , subject_id):
     this_subject = get_object_or_404(Subject, pk= subject_id)
     current_subject = Student.objects.get(user = request.user).subject.all()
+    current_seat = this_subject.subject.count()
+    maxseat = this_subject.max_seat
+    check_seat = maxseat - current_seat > 0
     if this_subject in current_subject :
         check = True
     else:
@@ -72,7 +75,8 @@ def subject_info(request , subject_id):
     return render(request , "registers/subjectinfo.html", {
         "subject" : this_subject,
         "user_registered" : check,
-        
+        "check_seat" : check_seat,
+        "current_seat" : current_seat,
     })
 
 def enroll(request , subject_id):
