@@ -1,1 +1,1 @@
-web: gunicorn cn331.w
+web: gunicorn cn331.wsgi
