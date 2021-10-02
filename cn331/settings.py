@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'cn331.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -84,8 +84,8 @@ DATABASES = {
     }
 }
 
-'''
-DATABASES = {
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'github-actions',
@@ -94,7 +94,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432'
         }
-    }
+    }"""
 
 
 
@@ -146,5 +146,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
