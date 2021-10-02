@@ -9,21 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
-    - name: psycopg2 prerequisites
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - uses: cn331as2/postgresql-action@v1
       with:
         postgresql version: '11'
-    - name: Run migrations
-      run : python manage.py makemigrations
-      run: python manage.py migrate
-    - name: Run tests
-      run: python manage.py test
+    - name: Run Django unit tests
+      run: |
+        pip3 install --user -r requirements.txt
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        coverage run --source='.' manage.py test
+        coverage report
+ 
