@@ -1,14 +1,29 @@
-name: Testing
-on: push
+name: Python application
+
+on: [push]
 
 jobs:
-  test_project:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Django unit tests
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: psycopg2 prerequisites
+      run: sudo apt-get install libpq-dev
+    - name: Install dependencies
       run: |
-        pip3 install --user -r requirements.txt
-        python3 manage.py makemigrations
-        python3 manage.py migrate
-        python3 manage.py test
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - uses: cn331as2/postgresql-action@v1
+      with:
+        postgresql version: '11'
+    - name: Run migrations
+      run : python manage.py makemigrations
+      run: python manage.py migrate
+    - name: Run tests
+      run: python manage.py test
