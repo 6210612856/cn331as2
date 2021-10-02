@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    background: linear-gradient(135deg,#fffb00,#ff4800);
+    height: 100vh;
+    overflow: hidden;
+}
+.form1 {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    height: 500px;
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+
+}
+.form1 h1{
+    display:block;
+}
+.form1 li{
+    display: inline-block;
+}
+.form2 {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+    height: 500px;
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+}
+.form2 li{
+    display: inline-block;
+}
+

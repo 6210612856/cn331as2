@@ -116,9 +116,10 @@ def unenroll(request , subject_id):
         student.subject.remove(select_subject)
     return HttpResponseRedirect(reverse("register:index"))
 
-# Create your views here.
-
 def upload(request):
+
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("register:login"))
   
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES ) 
