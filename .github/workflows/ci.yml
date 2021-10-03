@@ -1,21 +1,15 @@
-name: Python application
-
-on: [push]
+name: Testing
+on: push
 
 jobs:
-  build:
-
+  test_project:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-      with:
-        postgresql version: '11'
-    - name: Run Django unit tests
-      run: |
-        pip3 install --user -r requirements.txt
-        python3 manage.py makemigrations
-        python3 manage.py migrate
-        coverage run --source='.' manage.py test
-        coverage report
- 
+      - uses: actions/checkout@v2
+      - name: Run Django unit tests
+        run: |
+          pip3 install --user -r requirements.txt
+          python3 manage.py makemigrations
+          python3 manage.py migrate
+          coverage run --source='.' manage.py test
+          coverage report
