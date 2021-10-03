@@ -37,18 +37,30 @@ class UserLoginTest(TestCase):
     def test_student_userinfo(self):
         # login
         c = Client()
-        c.login(username='6110613020' , password = '6110613020')
+        c.post('/login', {'username' : '6110613020' , 'password': "6110613020"})
         response = c.get(reverse('register:info'))
         # Make sure that status code is 200 and correct username
         self.assertEqual(str(response.context['user']), '6110613020')
         self.assertEqual(response.status_code, 200)
         # Make sure that user access to the login page
         self.assertTemplateUsed(response, 'registers/userinfo.html')
+        #if fail
+        c.post('/login', {'username' : 'ayaya' , 'password': "ayaya"})
+        response = c.get(reverse('register:login'))
+        self.assertTemplateUsed(response, 'registers/login.html')
+
+    def test_logout(self):
+        c = Client()
+        c.post('/login', {'username' : '6110613020' , 'password': "6110613020"})
+        c.logout()
+        response = c.get(reverse('register:login'))
+        self.assertEqual(response.status_code, 200)
+ 
 
     def test_admin_index(self):
         #login 
         c = Client()
-        c.login(username='admin' , password = 'admin')
+        c.post('/login', {'username' : 'admin' , 'password': "admin"})
         response = c.get(reverse('register:info'))
         # Make sure that status code is 200 and correct username
         self.assertEqual(str(response.context['user']), 'admin')
@@ -66,6 +78,7 @@ class UserLoginTest(TestCase):
         c = Client()
         c.login(username='6110613020' , password = '6110613020')
         response = c.get(reverse('register:upload'))
+        c.post('/upload', {'form' : '/images/a.jpg' })
         self.assertTemplateUsed(response, 'registers/upload.html')
 
     def test_non_user_upload(self):
@@ -267,6 +280,17 @@ class UserSubjectInfoEnroll(TestCase):
         response = self.client.get(reverse('register:subjectinfo', args=(sub.subject_id,)))
         self.assertEqual(response.status_code, 302)
 
+    def test_enroll(self):
+        c = Client()
+        c.login(username="6110613020" , password = "6110613020")
+        stu = Student.objects.get(user = User.objects.get(username = "6110613020"))
+        sub = Subject.objects.get(subject_id = "cn201")
+        stu.subject.add(sub)
+        c.post('/enroll')
+        response = c.get(reverse('register:index'))
+        self.assertEqual(response.status_code, 200)
+
+
     def test_subjectinfo_user(self):
 
         c = Client()
@@ -287,18 +311,3 @@ class UserSubjectInfoEnroll(TestCase):
         stu.subject.remove(sub)
         response = c.get(reverse('register:subjectinfo', args=(sub.subject_id,)))
         self.assertEqual(response.context["check_seat"], True)
-
-
-
-
-
-
-        
-
-    
-        
-
-
-
-
-
