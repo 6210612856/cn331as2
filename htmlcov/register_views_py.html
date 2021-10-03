@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for register\views.py: 62%</title>
+    <title>Coverage for register\views.py: 73%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>register\views.py</b> :
-            <span class="pc_cov">62%</span>
+            <span class="pc_cov">73%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             79 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">49 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">30 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">58 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">21 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -120,14 +120,14 @@
     <p id="t66" class="pln"><span class="n"><a href="#t66">66</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t67" class="run"><span class="n"><a href="#t67">67</a></span><span class="t"><span class="key">def</span> <span class="nam">login_view</span><span class="op">(</span><span class="nam">request</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t68" class="run"><span class="n"><a href="#t68">68</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">"POST"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t69" class="mis show_mis"><span class="n"><a href="#t69">69</a></span><span class="t">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">"username"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t70" class="mis show_mis"><span class="n"><a href="#t70">70</a></span><span class="t">        <span class="nam">passw</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">"password"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t71" class="mis show_mis"><span class="n"><a href="#t71">71</a></span><span class="t">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">authenticate</span><span class="op">(</span><span class="nam">request</span> <span class="op">,</span> <span class="nam">username</span><span class="op">=</span><span class="nam">user</span><span class="op">,</span> <span class="nam">password</span> <span class="op">=</span> <span class="nam">passw</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t72" class="mis show_mis"><span class="n"><a href="#t72">72</a></span><span class="t">        <span class="key">if</span> <span class="nam">user</span> <span class="key">is</span> <span class="key">not</span> <span class="key">None</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t73" class="mis show_mis"><span class="n"><a href="#t73">73</a></span><span class="t">            <span class="nam">login</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">user</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t74" class="mis show_mis"><span class="n"><a href="#t74">74</a></span><span class="t">            <span class="key">return</span> <span class="nam">HttpResponseRedirect</span><span class="op">(</span><span class="nam">reverse</span><span class="op">(</span><span class="str">"register:info"</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t69" class="run"><span class="n"><a href="#t69">69</a></span><span class="t">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">"username"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t70" class="run"><span class="n"><a href="#t70">70</a></span><span class="t">        <span class="nam">passw</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">[</span><span class="str">"password"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t71" class="run"><span class="n"><a href="#t71">71</a></span><span class="t">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">authenticate</span><span class="op">(</span><span class="nam">request</span> <span class="op">,</span> <span class="nam">username</span><span class="op">=</span><span class="nam">user</span><span class="op">,</span> <span class="nam">password</span> <span class="op">=</span> <span class="nam">passw</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t72" class="run"><span class="n"><a href="#t72">72</a></span><span class="t">        <span class="key">if</span> <span class="nam">user</span> <span class="key">is</span> <span class="key">not</span> <span class="key">None</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t73" class="run"><span class="n"><a href="#t73">73</a></span><span class="t">            <span class="nam">login</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="nam">user</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t74" class="run"><span class="n"><a href="#t74">74</a></span><span class="t">            <span class="key">return</span> <span class="nam">HttpResponseRedirect</span><span class="op">(</span><span class="nam">reverse</span><span class="op">(</span><span class="str">"register:info"</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t75" class="pln"><span class="n"><a href="#t75">75</a></span><span class="t">        <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t76" class="mis show_mis"><span class="n"><a href="#t76">76</a></span><span class="t">            <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"registers/login.html"</span><span class="op">,</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t76" class="run"><span class="n"><a href="#t76">76</a></span><span class="t">            <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"registers/login.html"</span><span class="op">,</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
     <p id="t77" class="pln"><span class="n"><a href="#t77">77</a></span><span class="t">                <span class="str">"message"</span><span class="op">:</span> <span class="str">"Invalid credentials"</span>&nbsp;</span><span class="r"></span></p>
     <p id="t78" class="pln"><span class="n"><a href="#t78">78</a></span><span class="t">            <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t79" class="run"><span class="n"><a href="#t79">79</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">"registers/login.html"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -176,9 +176,9 @@
     <p id="t122" class="run"><span class="n"><a href="#t122">122</a></span><span class="t">        <span class="key">return</span> <span class="nam">HttpResponseRedirect</span><span class="op">(</span><span class="nam">reverse</span><span class="op">(</span><span class="str">"register:login"</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t123" class="pln"><span class="n"><a href="#t123">123</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t124" class="run"><span class="n"><a href="#t124">124</a></span><span class="t">    <span class="key">if</span> <span class="nam">request</span><span class="op">.</span><span class="nam">method</span> <span class="op">==</span> <span class="str">'POST'</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t125" class="mis show_mis"><span class="n"><a href="#t125">125</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">ImageForm</span><span class="op">(</span><span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">,</span> <span class="nam">request</span><span class="op">.</span><span class="nam">FILES</span> <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t125" class="run"><span class="n"><a href="#t125">125</a></span><span class="t">        <span class="nam">form</span> <span class="op">=</span> <span class="nam">ImageForm</span><span class="op">(</span><span class="nam">request</span><span class="op">.</span><span class="nam">POST</span><span class="op">,</span> <span class="nam">request</span><span class="op">.</span><span class="nam">FILES</span> <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t126" class="pln"><span class="n"><a href="#t126">126</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t127" class="mis show_mis"><span class="n"><a href="#t127">127</a></span><span class="t">        <span class="key">if</span> <span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t127" class="run"><span class="n"><a href="#t127">127</a></span><span class="t">        <span class="key">if</span> <span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t128" class="mis show_mis"><span class="n"><a href="#t128">128</a></span><span class="t">            <span class="nam">image</span> <span class="op">=</span> <span class="nam">form</span><span class="op">.</span><span class="nam">cleaned_data</span><span class="op">[</span><span class="str">'image'</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t129" class="mis show_mis"><span class="n"><a href="#t129">129</a></span><span class="t">            <span class="nam">a</span> <span class="op">=</span> <span class="nam">Student</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="nam">user</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">user</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t130" class="mis show_mis"><span class="n"><a href="#t130">130</a></span><span class="t">            <span class="nam">a</span><span class="op">.</span><span class="nam">img</span> <span class="op">=</span> <span class="nam">image</span>&nbsp;</span><span class="r"></span></p>
@@ -195,7 +195,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-10-02 20:36 +0700
+            created at 2021-10-03 14:15 +0700
         </p>
     </div>
 </div>
